@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shoe_item"
+            type="com.example.shoestore.Shoe" />
+    </data>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="shoe Name" />
+                <TextView
+                    android:id="@+id/shoeName"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+
+                    android:text="@{shoe_item.name}"
+                    android:hint="Shoe Name" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+
+                    android:text="shoe Size" />
+                <TextView
+                    android:id="@+id/shoeSize"
+                    android:textStyle="bold"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/shoe_size(shoe_item.size)}"
+                    android:hint="Shoe Size" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="shoe Company" />
+                <TextView
+                    android:id="@+id/shoeCompany"
+                    android:layout_width="220dp"
+                    android:text="@{@string/company(shoe_item.company)}"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:hint="Shoe Company" />
+
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="shoe Description" />
+            <TextView
+                android:id="@+id/shoeDesc"
+                android:layout_width="220dp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="@{@string/description(shoe_item.description)}"
+                android:hint="Shoe Description" />
+
+        </LinearLayout>
+
+        </LinearLayout>
+</layout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="information1">You Can Cancel The Addition Operation By click cancel</string>
+    <string name="information2">In The Next Screen, You Can Add New Shoes Using The Add Button </string>
+    <string name="welcomeTxt">Welcome To Egypt FWD</string>
+    <string name="description">Description: %s</string>
+    <string name="size">Shoe Size:</string>
+    <string name="company">Company: %s</string>
+    <string name="shoe_size">Shoe size: %.1f</string>
+
+</resources>
