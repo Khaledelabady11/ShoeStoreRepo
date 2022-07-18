@@ -50,7 +50,7 @@
                     android:textStyle="bold"
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/shoe_size(shoe_item.size)}"
+                    android:text="@{@string/shoeSize(shoe_item.size)}"
                     android:hint="Shoe Size" />
 
             </LinearLayout>

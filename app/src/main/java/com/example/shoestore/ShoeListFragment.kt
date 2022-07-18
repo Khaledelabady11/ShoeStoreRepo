@@ -8,9 +8,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.shoestore.R
-import com.example.shoestore.ShoeListFragmentDirections
-import com.example.shoestore.ShoesViewModel
+import com.example.shoestore.databinding.ActivityMainBinding
 import com.example.shoestore.databinding.FragmentShoeListBinding
 import com.example.shoestore.databinding.SoheItemBinding
 
@@ -29,7 +27,7 @@ class ShoeListFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentShoeListBinding
-    private val myViewModel: ShoesViewModel by activityViewModels()
+    private val myShoeViewModel:ShoesViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,19 +42,21 @@ class ShoeListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
+        setHasOptionsMenu(true)
+
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoe_list, container, false)
 
         binding.lifecycleOwner = this
-        binding.shoeViewModel = myViewModel
-        setHasOptionsMenu(true)
-        myViewModel.shoesItems.observe(viewLifecycleOwner, Observer { it->
+        binding.shoeViewModel = myShoeViewModel
+        myShoeViewModel.shoesItems.observe(viewLifecycleOwner, Observer { it->
             for (item in it){
                 val shoeBinding: SoheItemBinding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.sohe_item, container, false)
-                shoeBinding.shoeItem = item
-                binding.shoeLinerLayout.addView(shoeBinding.root)            }
+                shoeBinding.shoeItem=item
+                binding.shoeLinerLayout.addView(shoeBinding.root)
+            }
 
         })
 

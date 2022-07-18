@@ -25,8 +25,8 @@ class DetailsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentDetailsBinding
-    private val shViewModel: ShoesViewModel by activityViewModels()
-    private lateinit var detViewModel: DetailsViewModel
+    private val shoeViewModel: ShoesViewModel by activityViewModels()
+    private lateinit var detailViewModel: DetailsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +42,18 @@ class DetailsFragment : Fragment() {
     ): View? {
         binding=FragmentDetailsBinding.inflate(inflater,container,false)
 
-        detViewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
-        binding.viewModel = detViewModel
+      //  detailViewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
+        detailViewModel=ViewModelProvider(this)[DetailsViewModel::class.java]
+        binding.viewModel = detailViewModel
         binding.lifecycleOwner = this
 
 
         binding.save.setOnClickListener {view:View->
-                val shoe = detViewModel.createShoe()
-                shViewModel.addNewShoe(shoe)
+            
+            
+                val shoe= detailViewModel.createShoe()
+            
+            shoeViewModel.addNewShoe(shoe)
                 view.findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoeListFragment())
 
         }
